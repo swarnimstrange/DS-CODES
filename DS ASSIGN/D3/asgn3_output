@@ -1,0 +1,53 @@
+student@student:~$ sudo apt install libomp-dev
+[sudo] password for student: 
+Sorry, try again.
+[sudo] password for student: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libflashrom1 libftdi1-2
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libllvm14 libomp-14-dev libomp5-14
+Suggested packages:
+  libomp-14-doc
+The following NEW packages will be installed:
+  libllvm14 libomp-14-dev libomp-dev libomp5-14
+0 upgraded, 4 newly installed, 0 to remove and 8 not upgraded.
+Need to get 24.7 MB of archives.
+After this operation, 118 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 libllvm14 amd64 1:14.0.0-1ubuntu1 [24.0 MB]
+Get:2 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 libomp5-14 amd64 1:14.0.0-1ubuntu1 [388 kB]
+Get:3 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 libomp-14-dev amd64 1:14.0.0-1ubuntu1 [347 kB]
+Get:4 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 libomp-dev amd64 1:14.0-55~exp2 [3,074 B]
+Fetched 24.7 MB in 28s (872 kB/s)                                              
+Selecting previously unselected package libllvm14:amd64.
+(Reading database ... 206633 files and directories currently installed.)
+Preparing to unpack .../libllvm14_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking libllvm14:amd64 (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package libomp5-14:amd64.
+Preparing to unpack .../libomp5-14_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking libomp5-14:amd64 (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package libomp-14-dev.
+Preparing to unpack .../libomp-14-dev_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking libomp-14-dev (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package libomp-dev:amd64.
+Preparing to unpack .../libomp-dev_1%3a14.0-55~exp2_amd64.deb ...
+Unpacking libomp-dev:amd64 (1:14.0-55~exp2) ...
+Setting up libomp5-14:amd64 (1:14.0.0-1ubuntu1) ...
+Setting up libllvm14:amd64 (1:14.0.0-1ubuntu1) ...
+Setting up libomp-14-dev (1:14.0.0-1ubuntu1) ...
+Setting up libomp-dev:amd64 (1:14.0-55~exp2) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+student@student:~$ nano asgn3.c
+student@student:~$ gcc -fopenmp asgn3.c -o asgn3
+student@student:~$ ./asgn3
+1,2,3,4,5,6,7,8,9,10,
+Thread 0: Intermediate sum = 3
+Thread 1: Intermediate sum = 7
+Thread 3: Intermediate sum = 15
+Thread 2: Intermediate sum = 11
+Final sum = 36
+
