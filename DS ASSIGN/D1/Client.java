@@ -1,27 +1,21 @@
-import java.rmi.registry.Registry;
-import java.rmi.registry.LocateRegistry;
-import java.util.Scanner;
+import java.rmi.Naming;
 
-public class Client {
+public class AddClient {
     public static void main(String[] args) {
         try {
-            Registry registry = LocateRegistry.getRegistry("localhost", 1099);
-            AdditionService additionService = (AdditionService) registry.lookup("AdditionService");
+            String serverURL = "rmi://" + args[0] + "/AddServer";
+            AddServerIntf server = (AddServerIntf) Naming.lookup(serverURL);
 
-            Scanner sc=new Scanner(System.in);
+            double num1 = Double.parseDouble(args[1]);
+            double num2 = Double.parseDouble(args[2]);
 
-            System.out.println("Enter first number :");
-            int num1=sc.nextInt();
-
-            System.out.println("Enter second number :");
-            int num2=sc.nextInt();
-
-            int result = additionService.addNumbers(num1, num2);
-            System.out.println("Result: " + result);
+            double result = server.add(num1, num2);
+            System.out.println("Sum: " + result);
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());
             e.printStackTrace();
         }
     }
 }
+
 
